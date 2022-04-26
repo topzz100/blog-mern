@@ -11,6 +11,8 @@ const categoryRoute = require('./routes/categories')
 const multer = require("multer");
 const path = require("path");
 
+const port = process.env.PORT || 7000
+
  app.use(cors())
 app.use(morgan('common'))
 // app.use(morgan('tiny')) 
@@ -51,7 +53,7 @@ app.use('/api/posts', postRoute)
 app.use('/api/categories', categoryRoute)
 
 
-const PORT = process.env.PORT || 5500
-app.listen(PORT, () => {
-  console.log(`app listening on port ${PORT}`)
+
+app.listen(port, () => {
+  console.log(`app listening on port ${port}`)
 })

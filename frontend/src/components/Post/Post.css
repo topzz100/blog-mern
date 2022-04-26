@@ -1,0 +1,43 @@
+.post{
+  width: 400px;
+  margin: 20px;
+}
+.post img{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.post-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.post-title-category{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post-title-category span{
+  margin: 5px 10px;
+}
+.post-title p{
+  font-size: 23px;
+  font-weight: 900;
+  border-top: 10px;
+}
+.post-title span{
+  margin-top: 5px;
+  /* margin-bottom: 20px; */
+}
+.post-description{
+  margin-top: 20px;
+}
+.post-description p{
+  line-height: 1.5em;
+  overflow: hidden;
+  /* text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-;
+  -webkit-box-orient: vertical;*/
+}

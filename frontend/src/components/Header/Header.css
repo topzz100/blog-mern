@@ -1,0 +1,34 @@
+/* header{
+  margin-top: 100px;
+  width: 100%;
+} */
+.headerTitle{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  /* line-height: 50px; */
+
+}
+.smallTitle{
+  font-size: 15px;
+
+}
+.bigTitle{
+  font-size: 4em;
+  z-index: 2;
+}
+.headerImage{
+  width: 100%;
+  height: 450px;
+  /* position: absolute; */
+  margin-top: 80px;
+}
+.headerImage img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
