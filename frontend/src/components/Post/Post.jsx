@@ -1,22 +1,33 @@
-import './Post.css'
+import React from 'react'
+import { Link } from "react-router-dom";
+import { Wrapper, Content } from './Post.styles'
 
-export default function Post() {
+const Post = ({post}) => {
   return (
-    <div className="post">
-      <img src="/assets/photo3.jpg" alt="" />
-      <div className="post-title">
-        <div className="post-title-category">
-          <span>Music</span><span>Life</span>
-        </div>
-        <p>Lorem ipsum dolor sit amet </p>
-        <span>1 hour ago</span>
-      </div>
-      <div className="post-description">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam et tempore atque hic, sint fugit deserunt aut nostrum vel odit quisquam harum dicta excepturi expedita obcaecati perspiciatis cum deleniti alias!
-    
-        </p>
-      </div>
-      
-    </div>
+    <>
+      <Wrapper>
+        <Content>
+           {post.photo &&
+            (<img src={post.photo} alt="" />)
+          } 
+         
+          <div className="categories">
+             {post.categories && (post.categories.map(cat => {
+              return <span>{cat}</span>
+            }))} 
+            {/* <span>Music</span><span>Life</span> */}
+          </div>
+          <h4 className="title">
+            <Link to = {`/post/${post._id}`}>
+              {post.title}
+            </Link>
+            </h4>
+          <span className='time'>{new Date(post.createdAt).toDateString()}</span>
+          <p>{post.desc}</p>
+        </Content>  
+      </Wrapper> 
+    </>
   )
 }
+
+export default Post

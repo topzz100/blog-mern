@@ -1,11 +1,34 @@
-import './single.css';
-import SideBar from '../../components/SideBar/SideBar';
+import React, {useContext} from 'react'
+import MediaNav from '../../Components/MediaNav/MediaNav'
+import MediaSide from '../../Components/MediaSide/MediaSide'
+import NavBar from '../../Components/NavBar/NavBar'
+import SideBar from '../../Components/SideBar/SideBar'
+import SinglePost from'../../Components/SinglePost/SinglePost'
+import context from '../../Context/Context'
+import { Content, Wrapper} from './Single.styles'
 
-export default function Single() {
+const Single = () => {
+  const{ show } = useContext(context)
   return (
-    <div className="single">
-
-      <SideBar/>
-    </div>
+    <>
+      <NavBar/>
+       {
+        show &&
+        <div className="mediaSide" >
+          <MediaSide/>
+        </div>
+      }
+      <MediaNav/>
+      <Wrapper>
+        <Content>
+          <SinglePost/>
+          <div className="sideBar">
+            <SideBar/>
+          </div>
+        </Content>
+      </Wrapper>
+    </>
   )
 }
+
+export default Single

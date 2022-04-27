@@ -1,15 +1,20 @@
-import './Header.css'
+import React from 'react'
+import { Content, Wrapper } from './Header.styles'
 
-export default function Header() {
+const Header = () => {
   return (
-    <div className="header">
-      <div className="headerTitle">
-        <span className="smallTitle">React & Node</span><span className="bigTitle">BLOG</span>
-      </div>
-      <div className="headerImage">
-        <img src="/assets/background.jpeg" alt=""/>
-      </div>
-      
-    </div>
+    <>
+      <Wrapper>
+        <Content>
+          <div className="title">
+            <span className='mini'>React and Node</span>
+            <span className = 'major'>blog</span>
+          </div>
+          <img src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
+        </Content>
+      </Wrapper>
+    </>
   )
 }
+
+export default Header

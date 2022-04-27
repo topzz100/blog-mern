@@ -1,16 +1,19 @@
-import './Posts.css'
-import Post from '../Post/Post';
+import React from 'react'
+import Post from '../Post/Post'
+import { Content, Wrapper } from './Posts.styles'
 
-export default function Posts() {
+const Posts = ({posts}) => {
   return (
-    <div className="posts">
-      <Post/>
-      <Post/>
-      <Post/>
-      <Post/>
-      <Post/>
-      <Post/>
-      
-    </div>
+    <>
+      <Wrapper>
+        <Content>
+          {posts.map((post) => {
+            return <Post post = {post} key={post._id}/>
+          })}
+        </Content>
+      </Wrapper>
+    </>
   )
 }
+
+export default Posts

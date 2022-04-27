@@ -1,18 +1,50 @@
-import './home.css';
-import Header from '../../components/Header/Header';
-import Posts from '../../components/Posts/Posts';
-import SideBar from '../../components/SideBar/SideBar';
+import React, { useEffect, useState, useContext } from 'react'
+import Header from '../../Components/Header/Header'
+import NavBar from '../../Components/NavBar/NavBar'
+import Posts from '../../Components/Posts/Posts'
+import SideBar from '../../Components/SideBar/SideBar'
+import { Main } from './Home.styles'
+import context from '../../Context/Context'
+import axios from 'axios'
+import MediaSide from '../../Components/MediaSide/MediaSide'
+import MediaNav from '../../Components/MediaNav/MediaNav'
+
+const Home = () => {
+  const{show} = useContext(context)
+  const [posts, setPost] = useState([])
 
 
-export default function Home() {
+  useEffect(()=>{
+    const fetchPost = async() => {
+      const res =  await axios.get('http://127.0.0.1:5500/api/posts')
+      setPost(res.data.reverse())
+    }
+    
+    fetchPost()
+   
+   },[])
   return (
-    <div className="homePage">
-      <Header/>
-      <div className="content">
-        <Posts/>
-        <SideBar/>
-      </div>
+    <>
+       <NavBar/>
+      {
+        show &&
+        <div className="mediaSide" >
+          <MediaSide/>
+        </div>
+      }
       
-    </div>
+      <MediaNav/>
+      <Header/>
+      <Main>
+        <Posts posts= {posts}/>
+        
+        <div className="sideBar">
+          <SideBar/> 
+        </div>
+        
+      </Main>
+    </>
   )
 }
+
+export default Home
