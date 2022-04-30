@@ -56,7 +56,7 @@ const Write = () => {
   }
   const uploadPost = async(upload) => {
  try{
-      const res = await axios.post('http://127.0.0.1:5500/api/posts', upload)
+      const res = await axios.post('/api/posts', upload)
     
     res.data && window.location.replace('/post/' + res.data._id)
     }catch(err){
