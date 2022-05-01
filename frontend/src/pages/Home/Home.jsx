@@ -16,7 +16,7 @@ const Home = () => {
 
   useEffect(()=>{
     const fetchPost = async() => {
-      const res =  await axios.get('http://127.0.0.1:5500/api/posts')
+      const res =  await axios.get('/api/posts')
       setPost(res.data.reverse())
     }
     

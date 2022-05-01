@@ -20,7 +20,7 @@ const SinglePost = () => {
    useEffect(() => {
       const fetchSinglePost = async() => {
        try{
-          const res = await axios.get('https://holar-blog-app.herokuapp.com/api/posts/'+ path)
+          const res = await axios.get('/api/posts/'+ path)
             setPost(res.data);
             setTitle(res.data.title)
             setDesc(res.data.desc)
@@ -36,7 +36,7 @@ const SinglePost = () => {
 
    const handleUpdate = async() => {
      try{
-      await axios.put('http://127.0.0.1:5500/api/posts/'+ path, {
+      await axios.put('/api/posts/'+ path, {
         username: user.username,
         title,
         desc
@@ -50,7 +50,7 @@ const SinglePost = () => {
 
   const handleDelete = async() => {
     try{
-      await axios.delete('https://holar-blog-app.herokuapp.com/api/posts/' + path, {data: {username: user.username}})
+      await axios.delete('/api/posts/' + path, {data: {username: user.username}})
        window.location.replace( '/' )
     }catch(err){
       console.log(err)

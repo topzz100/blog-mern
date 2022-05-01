@@ -77,6 +77,36 @@ const Settings = () => {
       console.log(err);
     }
   }
+  //  const handleUpdate = async(e) => {
+  //   e.preventDefault()
+  //   dispatch({type: 'UPDATE_START'})
+  //   const updatedUser = {
+  //     userId: user._id,
+  //     username,
+  //     password,
+  //     email
+  //   };
+  //   if(file){
+  //     const data = new FormData()
+      
+  //     data.append('name', filename)
+  //     data.append('file', file)
+  //     updatedUser.profilePic = filename
+  //     try{
+  //       await axios.post('http://127.0.0.1:5500/api/upload', data)
+  //     }catch(err){
+  //       console.log(err);
+  //     }
+  //   }
+  //   try{
+  //     const res = await axios.put('http://127.0.0.1:5500/api/users/' + user._id, updatedUser)
+  //     dispatch({type: 'UPDATE_SUCCESS', payload: res.data})
+  //     res.data && window.location.replace('/')
+  //   }catch(err){
+  //     dispatch({type: 'UPDATE_FAILURE'})
+  //     console.log(err);
+  //   }
+  // }
 
   return (
     <>
