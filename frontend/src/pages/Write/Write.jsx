@@ -51,8 +51,6 @@ const Write = () => {
       );
 
     }
- 
-    
   }
   const uploadPost = async(upload) => {
  try{
