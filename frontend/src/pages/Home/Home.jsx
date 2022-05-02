@@ -23,7 +23,7 @@ const Home = () => {
     fetchPost()
    
    },[])
-  return (
+  return ( 
     <>
        <NavBar/>
       {
