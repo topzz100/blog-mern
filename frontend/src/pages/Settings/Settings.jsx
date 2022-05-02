@@ -8,6 +8,7 @@ import MediaNav from '../../Components/MediaNav/MediaNav'
 import MediaSide from '../../Components/MediaSide/MediaSide'
 import { storage } from '../../firebase'
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
+import { useNavigate } from 'react-router-dom'
 
 
 const Settings = () => {
@@ -16,6 +17,7 @@ const Settings = () => {
   const[username, setUsername] = useState(user.username)
   const[email, setEmail] = useState(user.email)
   const[password, setPassword] = useState('')
+  const navigate = useNavigate()
  
 
     const filename = Date.now() + file?.name
@@ -73,6 +75,7 @@ const Settings = () => {
     try{
       axios.delete('/api/users/' + user._id)
       dispatch({type: 'LOGOUT'})
+      navigate('/login')
     }catch(err){
       console.log(err);
     }

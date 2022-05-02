@@ -7,12 +7,14 @@ import MediaSide from '../../Components/MediaSide/MediaSide'
 import MediaNav from '../../Components/MediaNav/MediaNav'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { storage } from '../../firebase'
+import { CircularProgress } from '@material-ui/core'
 
 const Write = () => {
     const { user, show } = useContext(context)
   const [file, setFile] = useState(null)
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
+   const [isLoading, setIsLoading] = useState(false)
 
   const filename = Date.now() + file?.name
 
@@ -33,6 +35,7 @@ const Write = () => {
           
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log('Upload is ' + progress + '% done');
+          setIsLoading(true)
 
         }, 
         (error) => {
@@ -91,7 +94,12 @@ const Write = () => {
             <textarea name="" placeholder='Tell your story' onChange = {(e) => {setDesc(e.target.value)}}></textarea>  
               
             </div>
-            <button type='submit'>Publish</button>
+            <button type='submit'>
+              {isLoading ? (
+                <CircularProgress color="white" size="20px" />
+              ) : (
+                "Publish"
+              )}</button>
           </form>
         </Content>
          {/* <img src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />

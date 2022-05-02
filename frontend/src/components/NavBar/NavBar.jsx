@@ -2,13 +2,15 @@ import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
 import context from '../../Context/Context';
 import { Wrapper, Content } from './NavBar.styles'
+import { useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
   const {user, dispatch} = useContext(context)
-
+  const navigate = useNavigate()
   const handleLogOut = () => {
     console.log('logOut')
     dispatch({type: 'LOGOUT'})
+    navigate('/login')
   }
   return (
     <>

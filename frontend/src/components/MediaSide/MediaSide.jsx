@@ -3,13 +3,16 @@ import React, { useContext} from 'react'
 import { Link } from "react-router-dom";
 import context from '../../Context/Context';
 import { Content, Wrapper } from './MediaSide.styles';
+import { useNavigate } from 'react-router-dom'
 
 const MediaSide = () => {
    const {dispatch, show, setShow} = useContext(context) 
+   const navigate = useNavigate()
    const handleLogOut = () => {
     console.log('logOut')
     dispatch({type: 'LOGOUT'})
      setShow(!show)
+     navigate('/login')
   }
    
   return <>

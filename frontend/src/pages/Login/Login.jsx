@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom'
 // import NavBar from '../../Components/NavBar/NavBar'
 import context from '../../Context/Context'
 import { Content, Wrapper } from './Login.styles'
+import { CircularProgress } from "@material-ui/core";
 
 const Login = () => {
     const passwordRef = useRef()
   const emailRef = useRef()
   //  const [isError, setIsError] = useState(false)
-  const{dispatch} = useContext(context)
+  const{ dispatch, isFetching} = useContext(context)
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -38,7 +39,13 @@ const Login = () => {
             <input type="email" placeholder='Smith@mail.com' ref = {emailRef}/>
             <label htmlFor="">Password</label>
             <input type="password" placeholder='Password' ref={passwordRef}/>
-            <button type='submit' onClick={handleSubmit}>Login</button>
+            <button type='submit' onClick={handleSubmit}>
+               {isFetching ? (
+                <CircularProgress color="white" size="20px" />
+              ) : (
+                "Log In"
+              )}
+            </button>
             
           </form>
           <Link to={'/register'}>
